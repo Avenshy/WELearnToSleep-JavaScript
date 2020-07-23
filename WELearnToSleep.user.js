@@ -13,20 +13,19 @@
 
 (function () {
     'use strict';
-    debugger;
     if(typeof API_1484_11 == "undefined"){
         return null;
     }
     function runFinish() {
         // showLoading();
         let finishResult = Array(3);
-        let mycrate;
-        mycrate = window.prompt('请输入分数（正确率）：', '100');
-        if (mycrate == null) {
+        let inputcrate,mycrate;
+        inputcrate = window.prompt('请输入分数（正确率）：', '100');
+        if (inputcrate == null) {
             return null;
         } else {
-            mycrate == parseInt(mycrate);
-            if (mycrate == NaN) {
+            mycrate == parseInt(inputcrate);
+            if (mycrate == undefined) {
                 alert('输入错误！');
                 return null;
             }
