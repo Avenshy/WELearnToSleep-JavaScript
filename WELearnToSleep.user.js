@@ -6,13 +6,17 @@
 // @author       Avenshy
 // @homepageURL  https://github.com/Avenshy/WELearnToSleep-JavaScript
 // @supportURL   https://github.com/Avenshy/WELearnToSleep-JavaScript/issues
-// @match        https://welearn.sflep.com/student/StudyCourse.aspx*
+// @match        https://welearn.sflep.com/*
 // @license      GPL-3.0
 // @grant        none
 // ==/UserScript==
 
 (function () {
     'use strict';
+    debugger;
+    if(typeof API_1484_11 == "undefined"){
+        return null;
+    }
     function runFinish() {
         // showLoading();
         let finishResult = Array(3);
