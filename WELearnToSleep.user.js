@@ -19,10 +19,14 @@
     let removeClass;
     function runRefresh() {
         if (window.confirm('本章已完成，是否重置成未完成？')) {
-            let finishResult = Array(2);
+            let finishResult = Array(3);
             finishResult[0] = API_1484_11.SetValue('cmi.progress_measure', 0);
-            finishResult[1] = API_1484_11.SetValue('cmi.completion_status', 'not_attempted');
-            alert('progress: ' + (finishResult[0] ? '成功' : '失败') + '\nstatus: ' + (finishResult[1] ? '成功' : '失败'));
+            finishResult[1] = API_1484_11.SetValue('cmi.score.scaled', '');
+            finishResult[2] = API_1484_11.SetValue('cmi.completion_status', 'not_attempted');
+            EndSCO(true);
+            $('#liSCO_' + scoid).removeClass("course_disable"); 
+            SelectSCO(scoid);
+            alert('progress: ' + (finishResult[0] ? '成功' : '失败') + '\nscore: ' + (finishResult[1] ? '成功' : '失败') + '\nstatus: ' + (finishResult[2] ? '成功' : '失败'));
         }
     }
     function changeRefresh(reliveClass) {
@@ -63,7 +67,7 @@
         if (inputcrate == null) {
             return null;
         } else {
-            mycrate == parseInt(inputcrate);
+            mycrate = parseInt(inputcrate);
             if (mycrate == undefined) {
                 alert('输入错误！');
                 return null;
@@ -74,6 +78,7 @@
         finishResult[1] = API_1484_11.SetValue('cmi.score.scaled', mycrate);
         finishResult[2] = API_1484_11.SetValue('cmi.completion_status', 'completed');
         EndSCO(true);
+        SelectSCO(scoid)
         alert('progress: ' + (finishResult[0] ? '成功' : '失败') + '\nscore: ' + (finishResult[1] ? '成功' : '失败') + '\nstatus: ' + (finishResult[2] ? '成功' : '失败'));
         // hideLoading();
     };
@@ -88,7 +93,7 @@
         }
 
     };
-    clearInterval(actTimerID) // 清除30分钟挂机检测
+    clearInterval(actTimerID); // 清除30分钟挂机检测
     window.CheckActive = undefined; // 以防万一还是把函数hook掉
     // 简单hook官方KeepLearnTimeAndCheckToken()函数
     window.KeepLearnTimeAndCheckToken = function () {
