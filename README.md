@@ -1,5 +1,8 @@
 # WELearnToSleep-JavaScript
 WELearn一键完成课程JavaScript版  
+**脚本已失效，且永不更新，此页面仅作为存档**  
+**本脚本仅供学习参考交流，请使用者于下载24小时内自行删除，不得用于商业用途，否则后果自负。**  
+  
 GitHub: [WELearnToSleep-JavaScript](https://github.com/Avenshy/WELearnToSleep-JavaScript)  
 GreasyFork: [WELearn一键完成课程](https://greasyfork.org/scripts/407589-welearn%E4%B8%80%E9%94%AE%E5%AE%8C%E6%88%90%E8%AF%BE%E7%A8%8B)  
 
